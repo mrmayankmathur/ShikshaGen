@@ -15,7 +15,7 @@ import {
 } from '@/components/notifications';
 import { Loader2, FileText, CheckCircle2, XCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [outline, setOutline] = useState('');
@@ -217,6 +217,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <Toaster position="bottom-right" />
+      
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">

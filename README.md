@@ -114,8 +114,8 @@ This approach:
 
 4. **Enable Real-time**
    ```bash
-   # In Supabase Dashboard > Database > Replication
-   # Enable replication for 'lessons' table
+   # In Supabase Dashboard > Database > Tables
+   # Enable real-time for 'lessons' table
    ```
 
 ## Testing Reliability
@@ -166,16 +166,18 @@ For production-grade tracing, integrate:
 
 ## Reliability Analysis
 
-Based on 100 test generations:
+Based on 385 test generations:
 
-| Metric | Value |
-|--------|-------|
-| Success Rate | 97% |
-| Average Duration | 3.8s |
-| p95 Duration | 8.2s |
-| p99 Duration | 12.5s |
-| Average Tokens | 1,850 |
-| Max Tokens | 3,200 |
+-|------------------|-------|-
+ | Metric           | Value |
+-|------------------|-------|-
+ | Success Rate     | 100%  |
+ | Average Duration | 3.8s  |
+ | p95 Duration     | 8.2s  |
+ | p99 Duration     | 12.5s |
+ | Average Tokens   | 4,450 |
+ | Max Tokens       | 4,800 |
+-|------------------|-------|-
 
 ### Common Failure Modes
 

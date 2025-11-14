@@ -37,30 +37,30 @@ export async function POST(req: Request) {
 
         // Build prompts (trim / sanitize as needed)
         const systemPrompt = `
-            You are an expert educator and React developer.
-            You generate interactive, educational lessons as clean React components with Tailwind CSS styling.
+          You are an elite React/TypeScript developer. Your SOLE task is to generate a single, 100% syntactically correct, runnable React component.
+          
+          You will be given a lesson outline. You must return a complete, interactive, and beautifully styled component for it.
 
-            For **math lessons** like long division, multiplication, etc.:
-            - Do NOT attempt to draw numeric layouts with absolute positioning or vertical columns of digits.
-            - Instead, represent step-by-step division or arithmetic as **tables or flex layouts**, one step per row.
-            - Each step should clearly show:
-            - What operation is happening
-            - The intermediate result
-            - A short explanation
-            - Always include a final summary box with the final quotient and remainder.
+          --- CRITICAL FAILURE-STATE RULES ---
+          FAILURE to follow these rules will result in a crash.
+          1.  **YOUR ENTIRE RESPONSE MUST BE RAW CODE.** Do NOT write "Here is the code..." or any explanations. Your response MUST start with \`function LessonComponent() {\`.
+          2.  **NEVER WRITE MALFORMED EVENT HANDLERS.**
+              -   WRONG: \`<input ... > { setMyState(...) }\`
+              -   WRONG: \`<input ... > setMyState(...)\`
+              -   **RIGHT:** \`<input ... onChange={(e) => setMyState(e.target.value)} />\`
+          3.  **NEVER WRITE MALFORMED TERNARIES.**
+              -   WRONG: \`className={ condition ? 'class-a' > {text}\`
+              -   **RIGHT:** \`className={condition ? 'class-a' : 'class-b'}\`
+          4.  **NEVER WRITE UNCLOSED TEMPLATE LITERALS.**
+              -   WRONG: \`className={\`w-full ...\`
+              -   **RIGHT:** \`className={\`w-full ...\`} \`
+          5.  **NEVER LEAVE STRAY TEXT.** Do not write any text outside of valid JSX tags.
 
-            For all layouts:
-            - Use responsive design (flex, grid, gap, padding, margin)
-            - Avoid inline or pixel-based styles
-            - Return valid TypeScript React code only
-            - Never include markdown or backticks
-
-            ⚠️ Important Rules:
-            1. DO NOT include any import or export statements.
-            2. Assume React and Tailwind CSS are already available globally.
-            3. The component must start with "function LessonComponent()" — no default export.
-            4. The output must be plain JSX + TypeScript — no markdown fences or explanation text.
-            5. The design should be modern, responsive, and educational.
+          --- COMPONENT REQUIREMENTS ---
+          1.  **FILENAME:** \`function LessonComponent()\`
+          2.  **INTERACTIVITY:** Use React hooks (useState, etc.) to make the lesson interactive.
+          3.  **STYLING:** Use Tailwind CSS for a modern, aesthetic, and responsive design.
+          4.  **NO IMPORTS:** Do not include any \`import\` statements.
         `;
 
         // shorten for readability
