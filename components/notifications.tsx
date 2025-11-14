@@ -4,14 +4,12 @@ import {
   XCircle,
   FileText,
   Loader2,
-  X, // Import the 'X' icon
+  X,
 } from 'lucide-react';
 import React from 'react';
 
-// --- 1. The New Reusable Toast Component ---
-
 interface NotificationToastProps {
-  t: Toast; // The toast object from react-hot-toast
+  t: Toast; 
   Icon: React.ElementType;
   iconColor: string;
   bgColor: string;
@@ -27,7 +25,6 @@ const NotificationToast: React.FC<NotificationToastProps> = ({
   title,
   message,
 }) => {
-  // Animation classes for a slide-in/out from the right
   const animationClasses = t.visible
     ? 'translate-x-0 opacity-100'
     : 'translate-x-full opacity-0';
@@ -69,8 +66,6 @@ const NotificationToast: React.FC<NotificationToastProps> = ({
     </div>
   );
 };
-
-// --- 2. Your Updated Notification Functions (now one-liners) ---
 
 export const showLessonCreatedNotification = () => {
   toast.custom(
@@ -126,7 +121,7 @@ export const showLessonGeneratingNotification = () => {
       <NotificationToast
         t={t}
         Icon={Loader2}
-        iconColor="text-blue-600 animate-spin" // Pass the spin class
+        iconColor="text-blue-600 animate-spin"
         bgColor="bg-blue-100"
         title="Generating Lesson"
         message="Please wait..."
