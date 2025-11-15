@@ -222,10 +222,10 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-            Lesson Generator
+            ShikshaGen - Lesson Generator
           </h1>
           <p className="text-slate-600 text-lg">
-            Generate interactive educational content powered by AI
+            Generate interactive educational content within seconds using AI
           </p>
         </div>
 
