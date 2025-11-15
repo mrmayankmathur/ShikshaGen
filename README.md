@@ -1,8 +1,10 @@
 # AI Lesson Generator
 
+<img width="1512" height="826" alt="landing page" src="https://github.com/user-attachments/assets/40e9d40c-89ab-45a8-a4db-9e80fec3b97f" />
+
 A full-stack application that generates interactive educational content using AI. Users can provide lesson outlines and receive TypeScript React components that render as interactive lessons.
 
-The lesson generation workflow involves multiple steps that need to be traced for debugging, optimization, and monitoring.
+The lesson generation workflow involves multiple steps that must be tracked for debugging, optimisation, and monitoring.
 
 ## Features
 
@@ -26,12 +28,12 @@ The lesson generation workflow involves multiple steps that need to be traced fo
 ### AI Generation Pipeline
 
 1. User submits a lesson outline
-2. Outline is saved to database with status "generating"
+2. Outline is saved to the database with status "generating"
 3. Edge function is triggered asynchronously
-4. Edge function calls the API with structured prompt
+4. Edge function calls the API with a structured prompt
 5. Generated TypeScript is validated and saved
-6. Frontend receives real-time update and shows lesson
-7. TypeScript is safely executed using Function constructor
+6. Frontend receives a real-time update and shows the lesson
+7. TypeScript is safely executed using the Function constructor
 
 ## Database Schema
 
@@ -108,7 +110,7 @@ This approach:
 3. **Deploy to Vercel**
    ```bash
    # Connect GitHub repo to Vercel
-   # Add environment variables in Vercel dashboard
+   # Add environment variables in the Vercel dashboard
    # Deploy
    ```
 
@@ -123,7 +125,7 @@ This approach:
 To test generation reliability:
 
 1. Try different lesson types:
-   - "A 10 question pop quiz on Florida"
+   - "A 10 questions pop quiz on Florida"
    - "An explanation of how the Cartesian Grid works"
    - "A test on counting numbers"
 
@@ -139,23 +141,12 @@ The edge function includes comprehensive logging:
 - Generated code preview
 - Error messages with stack traces
 
-For production-grade tracing, integrate:
-- LangSmith for LLM observability
-- Sentry for error tracking
-- Supabase logs for database operations
-
 ## Key Trace Insights
 
 ### Performance Metrics
 - **Total Duration**: 3.6 seconds
-- **API Call**: 3.2 seconds (88% of total time)
-- **Database Operations**: 0.4 seconds (12% of total time)
-
-### Token Usage
-- **Input Tokens**: 234
-- **Output Tokens**: 1,589
-- **Total Tokens**: 1,823
-- **Estimated Cost**: $0.0073
+- **API Call**: 3.2 seconds
+- **Database Operations**: 0.4 seconds
 
 ### Generated Code Quality
 - **Length**: 5,234 characters
@@ -168,23 +159,25 @@ For production-grade tracing, integrate:
 
 Based on 385 test generations:
 
+<img width="230" alt="Screenshot 2025-11-15 at 9 33 45 PM" src="https://github.com/user-attachments/assets/aa3ba64b-1288-4f1a-b08d-178679a1c1dc" />
+
+<!-- 
 -|------------------|-------|-
  | Metric           | Value |
 -|------------------|-------|-
  | Success Rate     | 100%  |
- | Average Duration | 3.8s  |
- | p95 Duration     | 8.2s  |
- | p99 Duration     | 12.5s |
- | Average Tokens   | 4,450 |
- | Max Tokens       | 4,800 |
--|------------------|-------|-
+ | Average Duration | 35s   |
+ | Average Tokens   | 3,490 |
+ | Max Tokens       | 4,096 |
+-|------------------|-------|- 
+-->
 
 ### Common Failure Modes
 
 1. **Rate Limiting (2%)**: OpenAI API rate limits
    - Mitigation: Implement retry with exponential backoff
 
-2. **Invalid Code (1%)**: Generated code has syntax errors
+2. **Invalid Code (1%)**: Generated code has runtime errors
    - Mitigation: Add TypeScript validation before saving
 
 ## Development
@@ -216,13 +209,11 @@ npm run typecheck
 ✅ **Production Ready**: Fast, seamless user experience with real-time updates
 ✅ **Backend Generation**: Edge function architecture allows easy capability extension
 ✅ **TypeScript Robustness**: Safe execution with validation and error handling
-✅ **Reliability**: Structured prompts and validation ensure high success rate
+✅ **Reliability**: Structured prompts and validation ensure a high success rate
 
 ## Future Enhancements
 
-1. **SVG Support**: Generate SVG diagrams for visual learning
 2. **AI Images**: Integrate DALL-E for custom educational images
 3. **Multiple AI Models**: A/B test different models for quality
 4. **Lesson Templates**: Pre-defined templates for common lesson types
 5. **Export Options**: PDF, print-friendly versions
-6. **Analytics**: Track generation success rates and user engagement
